@@ -37,6 +37,7 @@ public class UidAutoConfiguration implements ApplicationListener<WebServerInitia
                     return factory.getGenerator(UidSnowflakeGenerator.class).generateLong();
                 }
             });
+            UidFactory.getInstance().uid().getLong();
         } catch (UidException e) {
             logger.error("uid auto configure exception: " + e.getMessage(), e);
             throw new RuntimeException(e);
