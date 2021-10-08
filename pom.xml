@@ -60,12 +60,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>sonatype-snapshots</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <id>maven-snapshots</id>
+            <name>maven-snapshots</name>
+            <url>http://192.168.1.100:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>sonatype-releases</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/releases</url>
+            <id>maven-releases</id>
+            <name>maven-releases</name>
+            <url>http://192.168.1.100:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
