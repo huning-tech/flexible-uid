@@ -6,7 +6,7 @@
 
     <groupId>com.langdashu</groupId>
     <artifactId>flexible-uid</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
 
     <modules>
         <module>flexible-uid-core</module>
@@ -19,7 +19,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <flexible.uid.version>1.1-SNAPSHOT</flexible.uid.version>
+        <flexible.uid.version>1.1</flexible.uid.version>
         <gpg.skip>false</gpg.skip>
         <spring-boot.version>2.2.2.RELEASE</spring-boot.version>
     </properties>
