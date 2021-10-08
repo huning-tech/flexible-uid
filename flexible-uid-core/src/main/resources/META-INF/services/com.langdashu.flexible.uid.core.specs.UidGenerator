@@ -1,0 +1,2 @@
+com.langdashu.flexible.uid.core.generator.impl.UidUUIDGenerator
+com.langdashu.flexible.uid.core.generator.impl.UidSnowflakeGenerator

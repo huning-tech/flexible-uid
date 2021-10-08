@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uid>
+    <datacenter code="beijing">
+        <worker ip="192.168.1.241" port="8090"/>
+        <worker ip="192.168.1.241" port="8091"/>
+        <worker ip="192.168.1.241" port="8092"/>
+        <worker ip="192.168.1.241" port="8093"/>
+    </datacenter>
+    <datacenter code="shanghai">
+        <worker ip="192.168.1.248" port="8081"/>
+        <worker ip="192.168.40.1" port="8083"/>
+		<worker ip="192.168.1.73,192.168.34.1,192.168.224.1" port="8083"/>
+    </datacenter>
+    <datacenter code="guangzhou">
+        <worker ip="192.168.1.200" port="8000"/>
+    </datacenter>
+    <datacenter code="shenzhen" group="order">
+        <worker ip="192.168.1.247,192.168.162.1,192.168.150.1" port="8080"/>
+        <worker ip="192.168.1.247,192.168.162.1,192.168.150.1" port="8081"/>
+        <worker ip="192.168.1.247,192.168.162.1,192.168.150.1" port="8082"/>
+        <worker ip="192.168.1.247,192.168.162.1,192.168.150.1" port="8083"/>
+    </datacenter>
+</uid>

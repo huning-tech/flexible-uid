@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uid>
+    <dataCenter code="beijing">
+        <worker ip="192.168.1.241" port="8090"/>
+    </dataCenter>
+    <dataCenter code="shanghai">
+        <worker ip="192.168.1.248" port="8081"/>
+    </dataCenter>
+    <dataCenter code="guangzhou">
+        <worker ip="192.168.1.200" port="8000"/>
+    </dataCenter>
+    <dataCenter code="shenzhen">
+        <worker ip="192.168.40.1" port="8888"/>
+		<worker ip="192.168.1.73,192.168.34.1,192.168.224.1" port="8888"/>
+    </dataCenter>
+</uid>
