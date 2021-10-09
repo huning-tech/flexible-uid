@@ -16,17 +16,12 @@
 
 
 
-#### 1. 构建本项目
+#### 1. 新建springboot工程[springboot-demo]
+如果已有springboot工程,可以跳过此步骤。
 
-```sh
-git clone https://gitee.com/langdashu/flexible-uid.git
-cd flexible-uid
-mvn clean install -Dmaven.test.skip=true
-```
 
-#### 2. 新建springboot工程springboot-demo
 
-##### 2.1 依赖配置 [springboot-demo\pom.xml]
+##### 1.1 依赖配置 [springboot-demo\pom.xml]
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,7 +76,7 @@ mvn clean install -Dmaven.test.skip=true
 </project>
 ```
 
-##### 2.2 应用配置 [springboot-demo\src\main\resources\application.properties]
+##### 1.2 应用配置 [springboot-demo\src\main\resources\application.properties]
 
 ```properties
 server.port=8080
@@ -89,7 +84,7 @@ server.servlet.context-path=/
 server.tomcat.uri-encoding=UTF-8
 ```
 
-##### 2.3 日志配置 [springboot-demo\src\main\resources\simplelogger.properties]
+##### 1.3 日志配置 [springboot-demo\src\main\resources\simplelogger.properties]
 
 ```properties
 org.slf4j.simpleLogger.defaultLogLevel=debug
@@ -132,12 +127,12 @@ public class SpringBootDemo {
 <dependency>
     <groupId>com.langdashu</groupId>
     <artifactId>flexible-uid-zookeeper</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
 </dependency>
 <dependency>
     <groupId>com.langdashu</groupId>
     <artifactId>flexible-uid-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
 </dependency>
 ```
 
@@ -148,7 +143,7 @@ snowflake.startTimeMillis=1420041699999
 ## zk地址
 zookeeper.address=127.0.0.1:2181
 ## 数据中心配置键
-env.variable.datacenter=springboot-demo-datacenter
+env.variable.datacenter=dc
 ## 预留
 startup.arg.datacenter=dc
 ```
@@ -156,7 +151,7 @@ startup.arg.datacenter=dc
 #### 4. 配置环境变量(非必选),不配置默认数据中心为"china"
 
 ```
-springboot-demo-datacenter=shenzhen
+dc=shenzhen
 ```
 
 #### 5. 添加接口类com.springboot.demo.controller.UidController
@@ -164,8 +159,8 @@ springboot-demo-datacenter=shenzhen
 ```java
 package com.springboot.demo.controller;
 
-import com.langdashu.flexible.uid.springboot.FlexibleUid;
 import com.langdashu.flexible.uid.core.exception.UidException;
+import com.langdashu.flexible.uid.core.factory.UidFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -178,7 +173,7 @@ public class UidController {
     @GetMapping("uid")
     @ResponseBody
     public Long generate() throws UidException {
-        return UidGenerator.getSnowflakeId();
+        return UidFactory.getInstance().uid().getLong();
     }
 
 }
@@ -203,7 +198,7 @@ http://localhost:8080/uid
 
 ### 基于xml配置方式
 
-#### 
+
 
 #### 1. 添加依赖配置 [springboot-demo\pom.xml]
 
@@ -211,12 +206,13 @@ http://localhost:8080/uid
 <dependency>
     <groupId>com.langdashu</groupId>
     <artifactId>flexible-uid-xml</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
 </dependency>
+
 <dependency>
     <groupId>com.langdashu</groupId>
     <artifactId>flexible-uid-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
 </dependency>
 ```
 
@@ -257,8 +253,8 @@ snowflake.startTimeMillis=1420041699999
 ```java
 package com.springboot.demo.controller;
 
-import com.langdashu.flexible.uid.springboot.FlexibleUid;
 import com.langdashu.flexible.uid.core.exception.UidException;
+import com.langdashu.flexible.uid.core.factory.UidFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -271,7 +267,7 @@ public class UidController {
     @GetMapping("uid")
     @ResponseBody
     public Long generate() throws UidException {
-        return UidGenerator.getSnowflakeId();
+        return UidFactory.getInstance().uid().getLong();
     }
 
 }
